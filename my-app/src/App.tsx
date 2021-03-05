@@ -1,10 +1,11 @@
 import React from 'react';
+import Juego from './Juego';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        hola
+        <Juego />
       </header>
     </div>
   );
