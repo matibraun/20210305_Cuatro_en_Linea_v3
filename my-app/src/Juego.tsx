@@ -13,16 +13,18 @@ function Juego () {
     type Posicion = string;
     
     type Jugador = {
-        name: string;
+        nombre: string;
         color: string;
     };
 
-    const [jugadores, setJugadores] = useState([])
+    const [jugadores, setJugadores] = useState([] as any)
     const [tablero, setTablero] = useState([])
 
-    function agregarJugador (name: string, color: string) {
+    // setJugadores({nombre: 'julio', color: 'rojo'})
+
+    function agregarJugador (nombre: string, color: string) {
         const jugador: Jugador = {
-            name: name,
+            nombre: nombre,
             color: color,
         };
 
@@ -30,7 +32,11 @@ function Juego () {
 
         const nuevaListaJugadores: Array<Jugador> = [...jugadores, jugador];
 
-        setJugadores(nuevaListaJugadores)
+        console.log(nuevaListaJugadores);
+
+        setJugadores(nuevaListaJugadores);
+
+        console.log(jugadores);
 
     };
     
@@ -38,6 +44,7 @@ function Juego () {
     return (
         <div>
             < Jugadores agregarJugador={agregarJugador}/>
+            {jugadores.map((j: any) => <div>{j.nombre} {j.color}</div>)}
         </div>
     )
 };
