@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Jugadores from './Jugadores'
+import Tablero from './Tablero'
 
 function Juego () {
 
     type State = {
         jugadores: Array<Jugador>;
         tablero: Array<Fila>;
+        momentoJuego: 'cargandoParticipantes' | 'jugando' | 'juegoFinalizado';
     };
     
     type Fila = Array<Posicion>;
@@ -18,7 +20,7 @@ function Juego () {
     };
 
     const [jugadores, setJugadores] = useState([] as any)
-    const [tablero, setTablero] = useState([])
+    const [tablero, setTablero] = useState([] as any)
 
     // setJugadores({nombre: 'julio', color: 'rojo'})
 
@@ -28,23 +30,22 @@ function Juego () {
             color: color,
         };
 
-        console.log(jugador)
-
         const nuevaListaJugadores: Array<Jugador> = [...jugadores, jugador];
 
-        console.log(nuevaListaJugadores);
-
         setJugadores(nuevaListaJugadores);
-
-        console.log(jugadores);
-
     };
     
+
+    function crearTablero (cantFilas: number, cantColumnas: number) {
+        console.log(cantFilas, cantColumnas);
+    };
+
 
     return (
         <div>
             < Jugadores agregarJugador={agregarJugador}/>
-            {jugadores.map((j: any) => <div>{j.nombre} {j.color}</div>)}
+            {jugadores.map((j: any, index: any) => <div key={index}>{j.nombre} {j.color}</div>)}
+            < Tablero crearTablero={crearTablero}/>
         </div>
     )
 };

@@ -2,22 +2,22 @@ import React, { useState, useEffect } from 'react';
 
 function Jugadores (props: any) {
 
-    const [nombreJugador, setNombreJugador] = useState('')
-    const [color, setColor] = useState('')
+    const [nombreJugador, setNombreJugador] = useState('');
+    const [color, setColor] = useState('');
 
     function handleChangeNombreJugador (event: any) {
         const value = event.target.value;
         setNombreJugador(value)
-    }
+    };
 
     function handleChangeColor (event: any) {
         const value = event.target.value;
         setColor(value)
-    }
+    };
 
     function handleClick () {
         props.agregarJugador(nombreJugador, color)
-    }
+    };
 
 return(
         <div>
