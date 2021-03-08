@@ -15,7 +15,7 @@ function Jugadores (props: any) {
         setColor(value)
     };
 
-    function handleClick () {
+    function handleClickCargarJugador () {
         props.agregarJugador(nombreJugador, color)
     };
 
@@ -27,7 +27,8 @@ return(
             Igrese el color seleccionado:
             <input type="text" value={color} name='color' onChange={handleChangeColor}/> <br />
             {color} <br />
-            <button onClick={handleClick}>Submit</button>
+            <button onClick={handleClickCargarJugador}>Cargar Jugador</button>
+
         </div>
     )
 
